@@ -1,6 +1,6 @@
 import ttn
 
-from utils import *
+from graq.utils import *
 
 class ApplicationHandler:
     def __init__(self, ttn_app_id, ttn_key, application_id):
