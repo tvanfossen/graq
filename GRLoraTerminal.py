@@ -2,22 +2,27 @@ import threading
 import time
 
 from queue import Queue
-from utils import *
+from graq.utils import *
 from graq.application_handler import ApplicationHandler
 
 app_id = "grand_rapids_air_quality"
 access_key = "ttn-account-v2.gt9fpNCFxGWjTaVYOFZexj3XMElpbnVSrShVdTlC1Ho"
 
+def worker(ost_app_id, ost_access_key):
+    app_handler = ApplicationHandler(ost_app_id, ost_access_key, "ost AQ application")
 
-if __name__ == "__main__":
-    q = Queue()
-
-    threading.Thread(name="welcome msg", target=display_terminal_welcome).start()
-
+def default_start():
     ost_app_id = "grand_rapids_air_quality"
     ost_access_key = "ttn-account-v2.gt9fpNCFxGWjTaVYOFZexj3XMElpbnVSrShVdTlC1Ho"
 
-    app_handler = ApplicationHandler(ost_app_id, ost_access_key, "ost AQ application")
+    threading.Thread(name="ost AQ app", target=worker, args=(ost_app_id, ost_access_key)).start()
+
+
+if __name__ == "__main__":
+    q = Queue()
+    threading.Thread(name="welcome msg", target=display_terminal_welcome).start()
+
+    default_start()
 
     while 1:
         time.sleep(1)
