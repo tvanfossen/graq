@@ -14,6 +14,7 @@ def prompt_parser(prompt):
         print()
         return 0
     elif prompt[0] == "exit":
+
         exit(0)
     elif prompt[0] == "add_app":
         print("adding app")
