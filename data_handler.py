@@ -1,4 +1,6 @@
 class DataHandler:
+    from pg import DB
+
     def __init__(self, q, ):
         self.q = q
 
@@ -41,6 +43,7 @@ class DataHandler:
 
     def create_new_entry(self, msg):
         print("creating new table for device")
+
 
     def push(self, entry):
         print("placeholder push to sql database")

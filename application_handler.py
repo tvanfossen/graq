@@ -16,8 +16,9 @@ class ApplicationHandler:
             print()
             print("Received uplink from ", msg.dev_id)
             msg_dict = dictify(msg)
+            print(msg_dict)
             # forward msg into queue
-            self.q.put(msg_dict)
+            # self.q.put(msg_dict)
 
         self.handler = ttn.HandlerClient(self.ttn_app_id, self.ttn_key)
 

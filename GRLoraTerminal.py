@@ -34,6 +34,10 @@ if __name__ == "__main__":
 
     default_start(q)
 
+    # from pg import DB
+    # from pg import DB
+    # db = DB(dbname='testdb', port=5432, user='scott', passwd='tiger')
+
     while 1:
         time.sleep(1)
         ret = prompt_parser(input("GRLora:\t"))
